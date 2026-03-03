@@ -21,7 +21,7 @@ from helpers.llm_helpers import (
 
 app = FastAPI(
     title="Propy Deed Validator",
-    description="Validates OCR-scanned deeds using LLM extraction and deterministic guardrails.",
+    description="Paste raw OCR deed text. Newlines in the JSON body are represented as `\n` -- denotes a new line.",
     version="0.1.0",
 )
 
