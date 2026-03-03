@@ -1,6 +1,6 @@
 # propy
 
-This pipeline accepts raw OCR deed text and sends it to Claude (Anthropic) for structured field extraction. The extracted county is fuzzy-matched against a local `counties.json` reference file to resolve the applicable tax rate. There are guardrails in place to flag review from a human in the loop instead of gracefully exiting. These guardrails flags any ocr text from being passed to the LLM with a recorded date earlier than a signed date, and also flags discrepancies between the numerical int (amount) and written out number.
+This pipeline accepts raw OCR deed text and sends it to Claude (Anthropic) for structured field extraction. The extracted county is fuzzy-matched against a local `counties.json` reference file to resolve the applicable tax rate. There are guardrails in place to flag review from a human in the loop instead of gracefully exiting. These guardrails flags any ocr text being passed to the LLM with a recorded date earlier than a signed date, and also flags discrepancies between the numerical int (amount) and written out number.
 
 
 ## Prerequisites
