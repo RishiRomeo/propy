@@ -1,15 +1,12 @@
-"""
-main.py
-
-Propy "Bad Deed" Validator
---------------------------
-Orchestrates the full pipeline:
-  1. Feed raw OCR text to Claude for structured extraction.
-  2. Fuzzy-match the county name against counties.json for tax data.
-  3. Run guardrail validations (dates, amounts).
-  4. Calculate estimated closing costs.
-  5. Output validated deed as JSON.
-"""
+# Usage: uv run main.py
+#
+# /// script
+# requires-python = ">=3.11"
+# dependencies = [
+#     "anthropic>=0.42.0",
+#     "word2number>=1.1",
+# ]
+# ///
 
 import json
 import logging
