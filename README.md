@@ -2,12 +2,11 @@
 
 This pipeline accepts raw OCR deed text and sends it to Claude (Anthropic) for structured field extraction. The extracted county is fuzzy-matched against a local `counties.json` reference file to resolve the applicable tax rate. There are guardrails in place to flag review from a human in the loop instead of gracefully exiting. These guardrails flags any ocr text from being passed to the LLM with a recorded date earlier than a signed date, and also flags discrepancies between the numerical int (amount) and written out number.
 
-
 ## Prerequisites
-`python ">=3.11"` - single script run
-`uv` - single script https://docs.astral.sh/uv/getting-started/installation/
-`DockerDesktop` - Docker / Swagger
-anthropic API key - [https://platform.claude.com/docs/en/api/admin/api_keys/retrieve ](https://platform.claude.com/settings/keys)
+- **Python 3.11+** — single script run
+- **[uv](https://docs.astral.sh/uv/getting-started/installation/)** — single script dependency management
+- **Docker Desktop** — only needed for Option 2 (Docker / Swagger)
+- **Anthropic API key** — get one from [console.anthropic.com](https://console.anthropic.com/settings/keys)
 
 ## Running the code
 
@@ -40,8 +39,7 @@ open http://localhost:8000/docs
 
 <img width="1504" height="809" alt="Screenshot 2026-03-03 at 1 40 36 PM" src="https://github.com/user-attachments/assets/2c095df4-c62f-452f-be63-acfff83e01bb" />
 
-
-## Example response
+## Example Response
 
 ```json
 {
@@ -70,4 +68,3 @@ open http://localhost:8000/docs
 ```
 
 <img width="1499" height="780" alt="Screenshot 2026-03-03 at 1 41 25 PM" src="https://github.com/user-attachments/assets/ddb46a3c-c7cf-4c16-8779-be0af114f40b" />
-
