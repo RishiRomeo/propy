@@ -38,7 +38,8 @@ open http://localhost:8000/docs
 - *This port will remain open until you tear the container down using the command in the next step*
 - Tear down with `make down`.
 
-<!-- screenshot: swagger ui -->
+<img width="1504" height="809" alt="Screenshot 2026-03-03 at 1 40 36 PM" src="https://github.com/user-attachments/assets/2c095df4-c62f-452f-be63-acfff83e01bb" />
+
 
 ## Example response
 
@@ -68,4 +69,5 @@ open http://localhost:8000/docs
 }
 ```
 
-<!-- screenshot: example response -->
+<img width="1499" height="780" alt="Screenshot 2026-03-03 at 1 41 25 PM" src="https://github.com/user-attachments/assets/ddb46a3c-c7cf-4c16-8779-be0af114f40b" />
+
