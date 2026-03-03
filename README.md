@@ -1,10 +1,17 @@
 # propy
 
-Propy accepts raw OCR deed text and sends it to Claude (Anthropic) for structured field extraction. The extracted county is fuzzy-matched against a local `counties.json` reference file to resolve the applicable tax rate. Two deterministic guardrail validations then run: (1) date integrity — `date_recorded` must not precede `date_signed`, and (2) amount discrepancy — the numeric dollar amount is compared against the written-out amount. Any validation failures are surfaced as flags in the response rather than halting the pipeline, so issues are queued for human review. Estimated annual property tax is calculated from the resolved county tax rate.
+This pipeline accepts raw OCR deed text and sends it to Claude (Anthropic) for structured field extraction. The extracted county is fuzzy-matched against a local `counties.json` reference file to resolve the applicable tax rate. There are guardrails in place to flag review from a human in the loop instead of gracefully exiting. These guardrails flags any ocr text from being passed to the LLM with a recorded date earlier than a signed date, and also flags discrepancies between the numerical int (amount) and written out number.
+
+
+## Prerequisites
+`python ">=3.11"` - single script run
+`uv` - single script https://docs.astral.sh/uv/getting-started/installation/
+`DockerDesktop` - Docker / Swagger
+anthropic API key - [https://platform.claude.com/docs/en/api/admin/api_keys/retrieve ](https://platform.claude.com/settings/keys)
 
 ## Running the code
 
-### Option 1: Local (zero-setup)
+### Option 1: Local (zero-setup) - easiest for non-engineers
 
 ```bash
 export ANTHROPIC_API_KEY=sk-ant-...
@@ -27,7 +34,8 @@ open http://localhost:8000/docs
 ```
 
 - Click **Try it out** on the `POST /validate-deed` endpoint, then **Execute**.
-- The default payload is pre-filled with sample OCR text.
+- The default payload is pre-filled with sample OCR text but you can change this to any deed text.
+- *This port will remain open until you tear the container down using the command in the next step*
 - Tear down with `make down`.
 
 <!-- screenshot: swagger ui -->
