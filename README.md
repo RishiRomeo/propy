@@ -28,7 +28,7 @@ echo "ANTHROPIC_API_KEY=sk-ant-..." > .env
 # 2. Start the stack
 make up
 
-# 3. Open the interactive docs
+# 3. Open the interactive docs -- conversely just paste the url into browser
 open http://localhost:8000/docs
 ```
 
